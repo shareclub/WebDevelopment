@@ -1,1 +1,3 @@
-console.log('ok')
+console.log('0wesadfasdfadasdfrtoasdfkasdf')
+
+//webpack
