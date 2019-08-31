@@ -56,8 +56,11 @@ li {
 }
 .topbar-car,.topbar-info {
     float: right;
+    padding: 0 10px;
 }
-
+.topbar-car {
+    margin-right: -10px;
+}
 .topbar-car a {
     display: block;
     height: 40px;
@@ -146,7 +149,7 @@ li {
     color: #ff6700;
 }
 .header-search {
-    float: left;
+    float: right;
     width: 296px;
     height: 50px;
     margin-top: 25px;
@@ -162,11 +165,13 @@ li {
     top: 0;
     right: 51px;
     display: block;
-    width: 245px;
-    height: 46px;
-    line-height: 50px;
+    width: 223px;
+    height: 48px;
+    font-size: 14px;
+    line-height: 48px;
     border: 1px solid #e0e0e0;
     outline: 0;
+    padding: 0 10px;
 }
 .header-search .search-form .search-btn {
     position: absolute;
@@ -185,4 +190,27 @@ li {
 .header-search .search-form .search-btn:hover {
     background-color: #ff6700;
     color: #fff;
+}
+.seckill {
+    height: 170px;
+}
+.seckill ul {
+    height: 1226px;
+    padding: 0;
+}
+.seckill ul li {
+    float: left;
+    width: 20%;
+    cursor: pointer;
+    line-height: 68px;
+    height: 68px;
+    text-align: center;
+    background: #414141;
+}
+.seckill ul li a {
+    display: block;
+    color: #fff;
+}
+.seckill ul .active {
+    background-color: #f1393a;
 }
