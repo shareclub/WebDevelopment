@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <input id="btn" type="button" value="跨域请求">
+        <div id="result"></div>
+        <script>
+        var add = (function(){
+            var counter = 0;
+            return function(){
+                return ++counter;
+            }
+        })();
+        btn.onclick = function(){
+            var sum = add();
+            var img = result.getElementsByTagName('img')[0];
+            if(!img){
+                var img = new Image();        
+            }
+            img.height="100";
+            img.onload = img.onerror = function(){
+                result.appendChild(img);
+                var oSpan = document.getElementById('sum');
+                if(!oSpan){
+                    oSpan = document.createElement('span');
+                    oSpan.id="sum";
+                }
+                oSpan.innerHTML = '发送请求的次数：' + sum;
+                result.appendChild(oSpan);
+            };    
+            if(sum%2){
+                img.src = "http://7xpdkf.com1.z0.glb.clouddn.com/eg_bulboff.gif?sum="+sum;    
+            }else{
+                img.src = "http://7xpdkf.com1.z0.glb.clouddn.com/eg_bulbon.gif?sum="+sum;    
+            }
+        }
+        </script>
+</body>
+</html>
