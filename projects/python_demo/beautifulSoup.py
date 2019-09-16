@@ -61,6 +61,12 @@ for child in head_tag.descendants:
 print("\n---string---")
 print(title_tag.string)
 
-print("\n---strings---")
+print("\n---strings和stripped_strings---")
 for string in soup.strings:
     print(repr(string))
+
+print("\n---去掉空格和换行stripped_strings---")
+for string in soup.stripped_strings:
+    print(string)
+
+print("\n---parent---")
