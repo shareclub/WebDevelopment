@@ -104,5 +104,75 @@
 
 `create-react-app my-app  //再次使用命令搭建app即可`
 
-    
-    
+## 编码测试与打包发布项目
+1、编码测试
+
+`npm start` 
+
+访问：http://localhost:3000
+
+编码，自动编译打包刷新（live-reload），查看效果
+
+2、打包发布
+
+`npm run build`
+
+`npm install -g serve`
+
+`serve build`
+
+访问：http://localhost:5000
+
+## 项目源码目录设计
+- src
+    - api
+    - assets
+    - components
+    - containers
+    - redux
+    - utils
+    - index.js
+
+## 引入antd-mobile模块
+
+`npm install antd-mobile --save`
+
+页面处理index.html添加以下代码：
+
+``` <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+<script>
+    if ('addEventListener' in document) {
+        document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+        }, false);
+    }
+    if(!window.Promise) {
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+    }
+</script>
+```
+
+  ## 实现按需打包
+
+1、下载依赖模块
+
+   `npm install --save-dev babel-plugin-import react-app-rewired`
+
+2、定义加载配置的js模块：config-overrides.js
+
+```
+ const { override, fixBabelImports } = require('customize-cra');
+
+ module.exports = function override(config, env) {
+   // do stuff with the webpack config...
+   return config;
+ };
+ module.exports = override(
+   fixBabelImports('import', {
+     libraryName: 'antd',
+     libraryDirectory: 'es',
+     style: 'css',
+   }),
+ );
+```
